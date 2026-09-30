@@ -59,7 +59,7 @@ cg@cg-C1001140:~/Downloads/Firmware Upgrade Procedure from SE4SA531 to SE4SA550/
 cg@cg-C1001140:~/Downloads/Firmware Upgrade Procedure from SE4SA531 to SE4SA550/PCIETOOL08-5890_DLMC(Seagate)(SE4SA550)_Linux$ 
 
 
-9/30/2026
+9/30/2026 --------------------------------------
 [user@localhost PCIETOOL08-5890_DLMC(Seagate)(SE4SA550)_Linux]$ nvme list
 Node                  Generic               SN                   Model                                    Namespace  Usage                      Format           FW Rev  
 --------------------- --------------------- -------------------- ---------------------------------------- ---------- -------------------------- ---------------- --------
@@ -94,4 +94,47 @@ Node                  Generic               SN                   Model          
 /dev/nvme3n1          /dev/ng3n1            7XT00AL8             XP12800LE70025                           0x1         12.80  TB /  12.80  TB    512   B +  0 B   SE4SA531
 /dev/nvme4n1          /dev/ng4n1            7XT00AL5             XP12800LE70025                           0x1         12.80  TB /  12.80  TB    512   B +  0 B   SE4SA531
 
+[user@localhost PCIETOOL08-5890_DLMC(Seagate)(SE4SA550)_Linux]$ ldd ./libMPFlow.so.1.0.0 
+./libMPFlow.so.1.0.0: /lib64/libldap_r-2.4.so.2: no version information available (required by ./libMPFlow.so.1.0.0)
+	linux-vdso.so.1 (0x00007ffeca3ab000)
+	libldap_r-2.4.so.2 => /lib64/libldap_r-2.4.so.2 (0x00007f4471fbc000)
+	libQt5Gui.so.5 => /opt/Qt5.9.8/5.9.8/gcc_64/lib/libQt5Gui.so.5 (0x00007f446e200000)
+	libQt5Core.so.5 => /opt/Qt5.9.8/5.9.8/gcc_64/lib/libQt5Core.so.5 (0x00007f446da00000)
+	libpthread.so.0 => /lib64/libpthread.so.0 (0x00007f4471fb7000)
+	libstdc++.so.6 => /lib64/libstdc++.so.6 (0x00007f446d600000)
+	libm.so.6 => /lib64/libm.so.6 (0x00007f4471eda000)
+	libgcc_s.so.1 => /lib64/libgcc_s.so.1 (0x00007f4471ec0000)
+	libc.so.6 => /lib64/libc.so.6 (0x00007f446d200000)
+	libldap.so.2 => /lib64/libldap.so.2 (0x00007f4471e5a000)
+	libGL.so.1 => /lib64/libGL.so.1 (0x00007f446e179000)
+	libz.so.1 => /lib64/libz.so.1 (0x00007f446e9e6000)
+	libicui18n.so.56 => /opt/Qt5.9.8/5.9.8/gcc_64/lib/libicui18n.so.56 (0x00007f446cc00000)
+	libicuuc.so.56 => /opt/Qt5.9.8/5.9.8/gcc_64/lib/libicuuc.so.56 (0x00007f446c800000)
+	libicudata.so.56 => /opt/Qt5.9.8/5.9.8/gcc_64/lib/libicudata.so.56 (0x00007f446ae00000)
+	libdl.so.2 => /lib64/libdl.so.2 (0x00007f446e9df000)
+	libgthread-2.0.so.0 => /lib64/libgthread-2.0.so.0 (0x00007f446e9da000)
+	libglib-2.0.so.0 => /lib64/libglib-2.0.so.0 (0x00007f446d8c6000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007f4471fd2000)
+	liblber.so.2 => /lib64/liblber.so.2 (0x00007f446e9c7000)
+	libevent-2.1.so.7 => /lib64/libevent-2.1.so.7 (0x00007f446d86d000)
+	libsasl2.so.3 => /lib64/libsasl2.so.3 (0x00007f446e159000)
+	libssl.so.3 => /lib64/libssl.so.3 (0x00007f446d51a000)
+	libcrypto.so.3 => /lib64/libcrypto.so.3 (0x00007f446a800000)
+	libGLX.so.0 => /lib64/libGLX.so.0 (0x00007f446d83b000)
+	libX11.so.6 => /lib64/libX11.so.6 (0x00007f446d0b8000)
+	libXext.so.6 => /lib64/libXext.so.6 (0x00007f446d505000)
+	libGLdispatch.so.0 => /lib64/libGLdispatch.so.0 (0x00007f446d44d000)
+	libpcre.so.1 => /lib64/libpcre.so.1 (0x00007f446ad88000)
+	libcrypt.so.2 => /lib64/libcrypt.so.2 (0x00007f446d413000)
+	libgssapi_krb5.so.2 => /lib64/libgssapi_krb5.so.2 (0x00007f446ad32000)
+	libkrb5.so.3 => /lib64/libkrb5.so.3 (0x00007f446a726000)
+	libk5crypto.so.3 => /lib64/libk5crypto.so.3 (0x00007f446d09f000)
+	libcom_err.so.2 => /lib64/libcom_err.so.2 (0x00007f446e9bc000)
+	libresolv.so.2 => /lib64/libresolv.so.2 (0x00007f446cbec000)
+	libxcb.so.1 => /lib64/libxcb.so.1 (0x00007f446cbc1000)
+	libkrb5support.so.0 => /lib64/libkrb5support.so.0 (0x00007f446e148000)
+	libkeyutils.so.1 => /lib64/libkeyutils.so.1 (0x00007f446e9b3000)
+	libXau.so.6 => /lib64/libXau.so.6 (0x00007f446d835000)
+	libselinux.so.1 => /lib64/libselinux.so.1 (0x00007f446a6f9000)
+	libpcre2-8.so.0 => /lib64/libpcre2-8.so.0 (0x00007f446a65d000)
 
