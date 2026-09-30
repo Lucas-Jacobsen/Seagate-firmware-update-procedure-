@@ -58,3 +58,40 @@ cg@cg-C1001140:~/Downloads/Firmware Upgrade Procedure from SE4SA531 to SE4SA550/
 	libXdmcp.so.6 => /usr/lib/x86_64-linux-gnu/libXdmcp.so.6 (0x000071b7393c7000)
 cg@cg-C1001140:~/Downloads/Firmware Upgrade Procedure from SE4SA531 to SE4SA550/PCIETOOL08-5890_DLMC(Seagate)(SE4SA550)_Linux$ 
 
+
+9/30/2026
+[user@localhost PCIETOOL08-5890_DLMC(Seagate)(SE4SA550)_Linux]$ nvme list
+Node                  Generic               SN                   Model                                    Namespace  Usage                      Format           FW Rev  
+--------------------- --------------------- -------------------- ---------------------------------------- ---------- -------------------------- ---------------- --------
+/dev/nvme0n1          /dev/ng0n1            511221129056000360   DIGISTOR 2TB                             0x1          2.05  TB /   2.05  TB    512   B +  0 B   ECPG13.0
+/dev/nvme1n1          /dev/ng1n1            7XT00AM8             XP12800LE70025                           0x1         12.80  TB /  12.80  TB    512   B +  0 B   SE4SA531
+/dev/nvme2n1          /dev/ng2n1            7XT00ALD             XP12800LE70025                           0x1         12.80  TB /  12.80  TB    512   B +  0 B   SE4SA531
+/dev/nvme3n1          /dev/ng3n1            7XT00AL8             XP12800LE70025                           0x1         12.80  TB /  12.80  TB    512   B +  0 B   SE4SA531
+/dev/nvme4n1          /dev/ng4n1            7XT00AL5             XP12800LE70025                           0x1         12.80  TB /  12.80  TB    512   B +  0 B   SE4SA531
+
+[user@localhost PCIETOOL08-5890_DLMC(Seagate)(SE4SA550)_Linux]$ sudo ./PCIETOOL08-5890_DLMC\(Seagate\)\(SE4SA550\)_Linux_64bit AUTO
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+[MSG] change@/devices/virtual/nvme-subsystem/nvme-subsys2/nvme2n1
+[MSG] change@/devices/virtual/nvme-subsystem/nvme-subsys1/nvme1n1
+[MSG] change@/devices/virtual/nvme-subsystem/nvme-subsys3/nvme3n1
+[MSG] change@/devices/virtual/nvme-subsystem/nvme-subsys4/nvme4n1
+[MSG] change@/devices/virtual/nvme-subsystem/nvme-subsys1/nvme1n1
+[MSG] change@/devices/virtual/nvme-subsystem/nvme-subsys1/nvme1n1
+02 : S_R09
+04 : A_F64
+[MSG] change@/devices/virtual/nvme-subsystem/nvme-subsys3/nvme3n1
+01 : S_T17
+[MSG] change@/devices/virtual/nvme-subsystem/nvme-subsys2/nvme2n1
+03 : A_F64
+05 : A_F64
+[MSG] change@/devices/virtual/nvme-subsystem/nvme-subsys4/nvme4n1
+[user@localhost PCIETOOL08-5890_DLMC(Seagate)(SE4SA550)_Linux]$ nvme list
+Node                  Generic               SN                   Model                                    Namespace  Usage                      Format           FW Rev  
+--------------------- --------------------- -------------------- ---------------------------------------- ---------- -------------------------- ---------------- --------
+/dev/nvme0n1          /dev/ng0n1            511221129056000360   DIGISTOR 2TB                             0x1          2.05  TB /   2.05  TB    512   B +  0 B   ECPG13.0
+/dev/nvme1n1          /dev/ng1n1            7XT00AM8             XP12800LE70025                           0x1         12.80  TB /  12.80  TB    512   B +  0 B   SE4SA550
+/dev/nvme2n1          /dev/ng2n1            7XT00ALD             XP12800LE70025                           0x1         12.80  TB /  12.80  TB    512   B +  0 B   SE4SA531
+/dev/nvme3n1          /dev/ng3n1            7XT00AL8             XP12800LE70025                           0x1         12.80  TB /  12.80  TB    512   B +  0 B   SE4SA531
+/dev/nvme4n1          /dev/ng4n1            7XT00AL5             XP12800LE70025                           0x1         12.80  TB /  12.80  TB    512   B +  0 B   SE4SA531
+
+
