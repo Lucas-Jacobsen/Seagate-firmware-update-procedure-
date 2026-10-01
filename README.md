@@ -59,7 +59,7 @@ cg@cg-C1001140:~/Downloads/Firmware Upgrade Procedure from SE4SA531 to SE4SA550/
 cg@cg-C1001140:~/Downloads/Firmware Upgrade Procedure from SE4SA531 to SE4SA550/PCIETOOL08-5890_DLMC(Seagate)(SE4SA550)_Linux$ 
 
 
-9/30/2026 --------------------------------------
+9/30/2026 -
 [user@localhost PCIETOOL08-5890_DLMC(Seagate)(SE4SA550)_Linux]$ nvme list
 Node                  Generic               SN                   Model                                    Namespace  Usage                      Format           FW Rev  
 --------------------- --------------------- -------------------- ---------------------------------------- ---------- -------------------------- ---------------- --------
@@ -137,4 +137,80 @@ Node                  Generic               SN                   Model          
 	libXau.so.6 => /lib64/libXau.so.6 (0x00007f446d835000)
 	libselinux.so.1 => /lib64/libselinux.so.1 (0x00007f446a6f9000)
 	libpcre2-8.so.0 => /lib64/libpcre2-8.so.0 (0x00007f446a65d000)
+
+
+[user@localhost images]$ sudo sedutil-cli --query /dev/nvme1
+
+/dev/nvme1 NVMe XP12800LE70025                           SE4SA550 7XT00AM8            
+TPer function (0x0001)
+    ACKNAK = N, ASYNC = N. BufferManagement = N, comIDManagement  = Y, Streaming = Y, SYNC = Y
+Locking function (0x0002)
+    Locked = N, LockingEnabled = N, LockingSupported = Y, MBRDone = N, MBREnabled = N, MediaEncrypt = Y
+Geometry function (0x0003)
+    Align = Y, Alignment Granularity = 8 (4096), Logical Block size = 512, Lowest Aligned LBA = 0
+SingleUser function (0x0201)
+    ALL = N, ANY = N, Policy = Y, Locking Objects = 9
+DataStore function (0x0202)
+    Max Tables = 9, Max Size Tables = 10485760, Table size alignment = 1
+OPAL 2.0 function (0x0203)
+    Base comID = 0x1000, Initial PIN = 0x00, Reverted PIN = 0x00, comIDs = 1
+    Locking Admins = 4, Locking Users = 9, Range Crossing = N
+
+TPer Properties: 
+  MaxComPacketSize = 16384  MaxResponseComPacketSize = 16384
+  MaxPacketSize = 16364  MaxIndTokenSize = 16328  MaxPackets = 1
+  MaxSubpackets = 1  MaxMethods = 1  MaxSessions = 1
+  MaxAuthentications = 13  MaxTransactionLimit = 1  DefSessionTimeout = 0
+  MaxSessionTimeout = 0  MinSessionTimeout = 0
+Host Properties: 
+
+  MaxComPacketSize = 2048  MaxResponseComPacketSize = 2048  MaxPacketSize = 2028
+  MaxIndTokenSize = 1992  MaxPackets = 1  MaxSubpackets = 1
+  MaxMethods = 1
+
+[user@localhost images]$ 
+
+
+[user@localhost images]$ sudo sedutil-cli --scan
+Scanning for Opal compliant disks
+/dev/nvme0  2  DIGISTOR 2TB                             ECPG13.0
+/dev/nvme1  2  XP12800LE70025                           SE4SA550
+/dev/nvme2  2  XP12800LE70025                           SE4SA531
+/dev/nvme3  2  XP12800LE70025                           SE4SA531
+/dev/nvme4  2  XP12800LE70025                           SE4SA531
+The Kernel flag libata.allow_tpm is not set correctly
+Please see the readme note about setting the libata.allow_tpm 
+/dev/sda   No   
+No more disks present ending scan
+[user@localhost images]$ sudo sedutil-cli --query /dev/nvme2  
+
+/dev/nvme2 NVMe XP12800LE70025                           SE4SA531 7XT00ALD            
+TPer function (0x0001)
+    ACKNAK = N, ASYNC = N. BufferManagement = N, comIDManagement  = Y, Streaming = Y, SYNC = Y
+Locking function (0x0002)
+    Locked = N, LockingEnabled = Y, LockingSupported = Y, MBRDone = N, MBREnabled = N, MediaEncrypt = Y
+Geometry function (0x0003)
+    Align = Y, Alignment Granularity = 8 (32768), Logical Block size = 4096, Lowest Aligned LBA = 0
+SingleUser function (0x0201)
+    ALL = N, ANY = N, Policy = Y, Locking Objects = 9
+DataStore function (0x0202)
+    Max Tables = 9, Max Size Tables = 10485760, Table size alignment = 1
+OPAL 2.0 function (0x0203)
+    Base comID = 0x1000, Initial PIN = 0x00, Reverted PIN = 0x00, comIDs = 1
+    Locking Admins = 4, Locking Users = 9, Range Crossing = N
+
+TPer Properties: 
+  MaxComPacketSize = 16384  MaxResponseComPacketSize = 16384
+  MaxPacketSize = 16364  MaxIndTokenSize = 16328  MaxPackets = 1
+  MaxSubpackets = 1  MaxMethods = 1  MaxSessions = 1
+  MaxAuthentications = 2  MaxTransactionLimit = 1  DefSessionTimeout = 0
+  MaxSessionTimeout = 0  MinSessionTimeout = 0
+Host Properties: 
+
+  MaxComPacketSize = 2048  MaxResponseComPacketSize = 2048  MaxPacketSize = 2028
+  MaxIndTokenSize = 1992  MaxPackets = 1  MaxSubpackets = 1
+  MaxMethods = 1
+
+[user@localhost images]$ 
+
 
