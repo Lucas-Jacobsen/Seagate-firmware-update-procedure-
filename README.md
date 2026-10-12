@@ -1,6 +1,6 @@
 Seagate-firmware-update-procedure-
 
-sudo apt update && sudo apt install -y build-essential linux-headers-$(uname -r) virtualbox-guest-utils
+```sudo apt update && sudo apt install -y build-essential linux-headers-$(uname -r) virtualbox-guest-utils
 
 9.24
 
@@ -211,6 +211,6 @@ Host Properties:
   MaxIndTokenSize = 1992  MaxPackets = 1  MaxSubpackets = 1
   MaxMethods = 1
 
-[user@localhost images]$ 
+[user@localhost images]$ ```
 
 
